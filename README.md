@@ -1,35 +1,9 @@
-# ctf_xinetd
+# 2022 西湖论剑 babycalc
 
-> A docker repository for deploying CTF challenges
+> real ez node
 
-## Configuration
+本项目使用动态flag，请使用`$FLAG`环境变量传入flag数据（如`CTFd`），题目环境位于`3000`端口
 
-Put files to floder `bin`. They'll be copied to /home/ctf. **Update the flag** at the same time.
+docker镜像发布于DockerHub：`randark/2022-xhlj-pwn-babycalc`
 
-Edit `ctf.xinetd`. replace `./helloworld` to your command.
-
-You can also edit `Dockerfile, ctf.xinetd, start.sh` to custom your environment.
-
-## Build
-
-```bash
-docker build -t "helloworld" .
-```
-
-DO NOT use *bin* as challenge's name
-
-## Run
-
-```bash
-docker run -d -p "0.0.0.0:pub_port:9999" -h "helloworld" --name="helloworld" helloworld
-```
-
-`pub_port` is the port you want to expose to the public network.
-
-## Capture traffic
-
-If you want to capture challenge traffic, just run `tcpdump` on the host. Here is an example.
-
-```bash
-tcpdump -w helloworld.pcap -i eth0 port pub_port
-```
+源码储存于Github：https://github.com/CTF-Archives/2022-xhlj-pwn-babycalc
